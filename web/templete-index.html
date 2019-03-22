@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet/less" type="text/css" href="css/index.less" />
+    <script type="text/javascript" src="./libs/soundjs.min.js"></script>
+    <!--<script type="text/javascript" src="./libs/clipboard.min.js"></script>-->
+    <title>我乐踩方块</title>
+    <!--<style>-->
+        <!--body {-->
+            <!--/* set margin to 0 and overflow to hidden, to go fullscreen */-->
+            <!--margin: 0;-->
+            <!--overflow: hidden;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+
+<body bgcolor="#A4E8AF">
+
+<div id="activity_banner" style="display: none;">
+    <div id="activity_banner_score">
+        <img id="activity_icon_img" src="./res/img/H5/activity_icon_img.png"/>
+        <button id="activity_score">
+            <img class="activity_score_img" src="./res/img/number/0.png"/>
+        </button>
+    </div>
+    <button id="activity_button">
+    </button>
+</div>
+
+<div id="letter_mask" style="display: none;">
+    <div class="letter_dialog">
+        <div class="letter_bg"></div>
+        <img class="letter_title_bg" src="./res/img/H5/letter_title_bg.png"/>
+        <img class="letter_title" src="./res/img/H5/letter_title.png"/>
+        <p class="letter_content"><span class="letter_content_span">大侠好：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是茹小岚，在修炼途中走火入魔，结果竟穿越到古代成了一只猫，我现在需要寻找到大理寺秘境，便可重塑人身，若你能帮我收集足够的五彩石，还有机会获得丰厚奖励哦，望大侠仗义相助~</span></p>
+        <button id="letter_button"></button>
+    </div>
+</div>
+
+<div id="activity_mask" style="display: none;">
+    <div id="activity_dialog">
+        <button id="activity_close_button">
+        </button>
+        <div id="activity_dialog_bg"></div>
+        <div id="activity_dialog_title_bg"></div>
+        <div id="activity_dialog_title"></div>
+        <div id="activity_dialog_vip"></div>
+        <p id="activity_dialog_description">随机1天-1年搜狐视频VIP</p>
+        <button id="activity_get_button">
+        </button>
+        <button id="activity_share_button">
+        </button>
+        <div id="activity_dialog_icon"></div>
+        <p id="activity_dialog_count">五彩石0/500</p>
+        <p id="activity_dialog_shareTint">分享到朋友圈即可得<font style="color: #FFC600">100</font>个五彩石</p>
+    </div>
+    <div id="activity_cat_word">
+        <div id="activity_cat_word_bg"></div>
+        <ul id="activity_cat_word_content">
+            <li class="activity_cat_word-li">进入大理寺，收集五彩石，即可获得丰厚奖励哦~</li>
+            <li class="activity_cat_word-li hidden">大理寺的入口需要发挥您的聪明才智才能找到哟~</li>
+            <li class="activity_cat_word-li hidden">登录后收集的五彩石才可以兑换搜狐视频会员卡哦~</li>
+        </ul>
+    </div>
+    <div id="activity_cat"></div>
+</div>
+
+<div id="over_mask" style="display: none;">
+    <p id="over_title">本局得分</p>
+    <!--<div class="score-container">-->
+        <div id="over_score">
+            <!--<img class="score_img" src="./res/img/number/1.png" />-->
+            <!--<img class="score_img" src="./res/img/number/2.png" />-->
+        </div>
+    <!--</div>-->
+    <button id="over_rank">
+        查看排行榜 >
+    </button>
+    <button id="over_restart">
+    </button>
+    <button id="over_share">
+    </button>
+    <!--<div id="over_bottom_bg">-->
+        <!--<div id="over_back">-->
+        <!--</div>-->
+        <!--<div id="over_share">-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+<div id="rank_list" style="display: none;">
+    <div id="rank_list_bg">
+        <img id="rank_list_paihangbang" src="res/img/ranking_list.png"/>
+        <div id="rank_list_bg_black">
+            <div id="rank_list_bg_white"></div>
+            <div id="rank_list_bg_top"></div>
+            <div id="rank_list_bg_scroll">
+                <!--<div class="rank_list_userInfo">-->
+                    <!--<div class="rank_list_pre_three">-->
+                        <!--<div class="rank_list_rank">-->
+                            <!--1-->
+                        <!--</div>-->
+                        <!--<img class="rank_list_avatar" src="res/img/ava.png" />-->
+                        <!--<div class="rank_list_name">-->
+                            <!--哈哈-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="rank_list_value">-->
+                        <!--200-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div id="rank_list_bg_line"></div>
+            <div id="rank_list_myInfo">
+                <div id="myInfo_pre_three">
+                    <div id="myRank" class="myRank_num">
+                        2
+                    </div>
+                    <img id="myAvatar" src="res/img/ava.png" />
+                    <div id="myName">
+                        哈哈
+                    </div>
+                </div>
+                <div id="myValue">
+                    200
+                </div>
+            </div>
+        </div>
+        <button id="rank_list_back">
+            <img id="rank_list_back_img" src="./res/img/back.png"/>
+        </button>
+    </div>
+</div>
+
+<!--立即使用vip-->
+<div id='use-vip-cont' style="display: none; width:100%; height: 100%; position: absolute; top:0; left: 0; background-color: rgba(0,0,0,0.5);">
+    <div id="use-vip">
+        <button id="uv-close-btn"></button>
+        <div id="uv-title"></div>
+        <div id="uv-content-bg">
+            <div id="uv-content">
+                <div id="uv-1day"></div>
+                <button id="uv-btn"></button>
+                <button id="uv-showoff-btn"></button>
+            </div>
+        </div>
+    </div>
+    <div id="uv-dialog">
+        <div id="uv-dialog-text">
+            <ul id="uv-dialog-ul">
+                <li class="uv-dialog-li">有一种距离很远，叫做天涯</li>
+                <li class="uv-dialog-li hidden">有一种距离很近，叫做咫尺</li>
+                <li class="uv-dialog-li-2">——茹小岚</li>
+            </ul>
+        </div>
+    </div>
+    <div id="uv-cat"></div>
+</div>
+
+<!--领取vip-->
+<div id='get-vip-cont' style="display:none; width:100%; height: 100%; position: absolute; top:0; left: 0; background-color: rgba(0,0,0,0.5);">
+    <div id="get-vip">
+        <button id="gv-close-btn"></button>
+        <div id="gv-title"></div>
+        <div id="gv-content-bg">
+            <div id="gv-content">
+                <div id="gv-1day"></div>
+                <div id="gv-text">随机1天-1年搜狐视频VIP</div>
+                <div class="gv-btn-con left">
+                    <button id="gv-btn"></button>
+                    <div class="gv-btn-des">
+                        <div id="gv-5"></div>
+                        <div id="gv-count">五彩石500/500</div>
+                        <div class="gv-clear"></div>
+                    </div>
+                </div>
+                <div class="gv-btn-con right">
+                    <button id="gv-showoff-btn"></button>
+                    <!--<p class="gv-btn-des spe">分享到朋友圈即得<span>100</span>五彩石</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gv-dialog">
+        <div id="gv-dialog-text">
+            <ul id="gv-dialog-ul">
+                <li class="gv-dialog-li">进入大理寺，收集五彩石，即可获得丰厚奖励哦~</li>
+                <li class="gv-dialog-li hidden">大理寺的入口需要发挥您的聪明才智才能找到哟~</li>
+                <li class="gv-dialog-li hidden">登录后收集的五彩石才可以兑换搜狐视频会员卡哦~</li>
+            </ul>
+        </div>
+    </div>
+    <div id="gv-cat"></div>
+</div>
+
+<!--恭喜获得-->
+<div id='congratulation' style="display:none; width:100%; height: 100%; position: absolute; top:0; left: 0; background-color: rgba(0,0,0,0.5);">
+    <div id="congratulation-img"></div>
+    <div id="cong-content">
+        <div id="cong-img"></div>
+        <div id="cong-text">搜狐视频VIP体验卡1天</div>
+    </div>
+    <button id="cong-btn"></button>
+</div>
+
+<!--激活码-->
+<div id='code' style="display:none; width:100%; height: 100%; position: absolute; top:0; left: 0; background-color: rgba(0,0,0,0.5);">
+    <div id="cd-img"></div>
+    <div id="cd-content">
+        <div id="cd-content-white">
+            <p id="tips">您的会员激活码为</p>
+            <input id="number" value="123458585858899494" readonly="readonly"></input>
+            <button id="cd-copy-btn" data-clipboard-target="#number"></button>
+            <div id="cd-text">
+                <p>激活码使用方法：</p>
+                <ul class="method">
+                    <li>1、搜狐视频AndroidPhone/iPhone/iPad手机应用，在会员中心点击"兑换码"，输入激活码激活；</li>
+                    <li>2、PC端请打开【搜狐视频】官网，登录后进入【个人中心】-【会员中心】-【兑换码】，输入激活码激活即可；</li>
+                </ul>
+                <p class="low">注意事项：</p>
+                <ul class="action">
+                    <li>1.必须先注册搜狐视频通行证账号才能激活会员；</li>
+                    <li>2.激活有效期从即日起到2018年12月31日；</li>
+                    <li>3.如有问题请拨打客服电话4008816666。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button id="cd-close-btn"></button>
+</div>
+
+<canvas id="WebGL-output">
+</canvas>
+
+
+<!--<script src="./bundle.js"></script>-->
+<!--<script type="module">-->
+<!--console.log('开始加载模块');-->
+<!--// import MyGame from './test.js'-->
+<!--// const game = new MyGame();-->
+<!--// game.show();-->
+<!--import './game.js'-->
+<!--</script>-->
+
+</body>
+</html>
+

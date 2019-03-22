@@ -1,0 +1,4 @@
+[submodule "js/shared"]
+	path = js/shared
+	url = git@git.b.sohuno.com:SmallGame/awesome-shared.git
+	branch = develop

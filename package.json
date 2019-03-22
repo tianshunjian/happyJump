@@ -1,0 +1,39 @@
+{
+  "name": "awesome-jump",
+  "version": "1.0.0",
+  "description": "Three js 版微信小游戏",
+  "private": true,
+  "scripts": {
+    "copyfiles": "gulp",
+    "build": "webpack --config ./web/webpack.config.js",
+    "server": "./node_modules/.bin/webpack-dev-server --config ./web/webpack-server.config.js --open",
+    "eslint": "node ./eslint/check.js",
+    "eslintAll": "node ./eslint/checkAll.js"
+  },
+  "pre-commit": [
+    "eslint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@git.b.sohuno.com:SmallGame/awesome-jump.git"
+  },
+  "author": "qianlongxu",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "npm": "^6.3.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "eslint": "^5.5.0",
+    "pre-commit": "^1.2.2"
+  }
+}

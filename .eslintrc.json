@@ -1,0 +1,70 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "no-control-regex":"off"
+    },
+    "globals": {
+        "cancelAnimationFrame":false,
+        "requestAnimationFrame":true,
+        "_animation":false,
+        "Image": false,
+        "createjs": false,
+        "wx": false,
+        "document": false,
+        "window": false,
+        "cc": false,
+        "jsb": false,
+        "clearTimeout": false,
+        "setInterval": false,
+        "setTimeout": false,
+        "_network2":false,
+        "_shareApp":false,
+        "_get":false,
+        "canvas":false,
+        "localStorage":false,
+        "navigator":false,
+        "XMLHttpRequest":false,
+        "HTMLImageElement":false,
+        "HTMLAudioElement":false,
+        "HTMLVideoElement":false,
+        "location":false,
+        "Blob":false,
+        "BlobBuilder":false,
+        "XDomainRequest":false,
+        "ActiveXObject":false,
+        "WIDTH":true,
+        "HEIGHT":true,
+        "CC_EDITOR":false,
+        "define":false,
+        "Element":false,
+        "HTMLElement":false,
+        "HTMLCanvasElement":false,
+        "GameGlobal":false
+    }
+}
